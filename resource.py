@@ -1,3 +1,4 @@
+# global
 _vehicle = {'bike':[2,2],
             '4wheel':[1,4] # {type: [quantity, capacity]}
             }
