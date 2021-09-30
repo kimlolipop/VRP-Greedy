@@ -1,4 +1,4 @@
-# global
+# global --> I think it must call from csv
 _vehicle = {'bike':[2,2],
             '4wheel':[1,4] # {type: [quantity, capacity]}
             }
@@ -14,7 +14,7 @@ def select_vehicle(order):
             return typ
         
     return 'non' # no car in resource
-        
+    
     
 def step_vehicle(car_type):
         
