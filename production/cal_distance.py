@@ -4,7 +4,7 @@ from math import cos, asin, sqrt, pi
 # start = time.time()
 
 def ucredient(lat1, lon1, lat2, lon2):
-    d = math.sqrt(((lat2-lat1)**2) + ((lon2-lon1)**2))
+    d = sqrt(((lat2-lat1)**2) + ((lon2-lon1)**2))
     return d
 
 def haversine(lat1, lon1, lat2, lon2): # great-circle distance
@@ -14,15 +14,23 @@ def haversine(lat1, lon1, lat2, lon2): # great-circle distance
 
 def cal(route, df):
     distance = []
+    
+    method = 'ucredient' 
+    
     for idx, p1 in enumerate(route):
         distance.append([])
         lat1 = df['Lat'].loc[p1]
-        lon1 = df['Lat'].loc[p1]
-
+        lon1 = df['Long'].loc[p1]
+        
+        
         for p2 in route:
             lat2 = df['Lat'].loc[p2]
-            lon2 = df['Lat'].loc[p2]
-
-            d = haversine(lat1,lon1, lat2, lon2)
+            lon2 = df['Long'].loc[p2]
+            
+            # choose method
+#             d = haversine(lat1,lon1, lat2, lon2)
+            print(lat1,lon1, lat2, lon2)
+            d = ucredient(lat1,lon1, lat2, lon2)
+            
             distance[idx].append(d)
     print(distance)

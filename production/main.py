@@ -16,6 +16,8 @@ target_ClientID = list(demand) # [client id{1}, client id{2}, client id{...}, cl
 target_LatLong = pd.DataFrame.from_dict(locate, orient='index', columns=['Lat', 'Long']) # df --> [client id, Lat, Long]
 from2from_Chart = cal_distance.cal(target_ClientID, target_LatLong)
 
+print(target_ClientID)
+print(target_LatLong)
 
 
 print(from2from_Chart) #-->  recheck from to from chart again
