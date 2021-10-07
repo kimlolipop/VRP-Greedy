@@ -1,26 +1,24 @@
 import pandas as pd
-
 import cal_distance
-import customer_DB
 import order
-import resource
-
+import DB
 
 # =============demand check
 #demand
 demand = order.Demand_list() # {client id : [type, quantity, time request]}
-locate = customer_DB.locate() # {client id: [lat,long]} --> all user in client
+locate = DB.locate() # {client id: [lat,long]} --> all user in client
 
-# cal from to from
+# distance from to from
 target_ClientID = list(demand) # [client id{1}, client id{2}, client id{...}, client id{n}]
 target_LatLong = pd.DataFrame.from_dict(locate, orient='index', columns=['Lat', 'Long']) # df --> [client id, Lat, Long]
-from2from_Chart = cal_distance.cal(target_ClientID, target_LatLong)
+distance_from2from_chart, TransitTime_from2from_chart = cal_distance.cal_Distance_TransitTime(target_ClientID, target_LatLong)
 
-print(target_ClientID)
-print(target_LatLong)
+print("target_clientID --> \n", target_ClientID)
+print("target_LatLong --> \n", target_LatLong)
 
 
-print(from2from_Chart) #-->  recheck from to from chart again
+print(distance_from2from_chart) #-->  recheck from to from chart again
+print(TransitTime_from2from_chart)
 
 
 
