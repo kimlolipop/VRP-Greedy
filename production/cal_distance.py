@@ -14,11 +14,11 @@ def haversine_distance(lat1, lon1, lat2, lon2): # great-circle distance
     return 12742 * asin(sqrt(a)) #2*R*asin...
 
 # method transit time
-def physic_fomular_time(s, v=40):
-    t = (s/v) * 1.2  # --> v =s/t : v = km/min, s = km, t = min
-    return t
+def physic_fomular_time(s, v=40, tolerances = 0.2):
+    t = (s/v) * (1+ tolerances)  # --> v =s/t : v = km/h, s = km, t = h
+    t = t * 60 # convert to min --> 1h = 60min
+    return t 
 
-# def cal_transit_time(route, df):
     
 
 def cal_Distance_TransitTime(route, df): #--> distance and transit time
@@ -47,7 +47,7 @@ def cal_Distance_TransitTime(route, df): #--> distance and transit time
             # cal transint time from distance 
             transit_time = physic_fomular_time(distance)
     
-            transit_time_list[idx].append(distance)
+            transit_time_list[idx].append(transit_time)
             distance_list[idx].append(distance)
     
     return distance_list, transit_time_list

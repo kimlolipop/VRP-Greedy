@@ -11,17 +11,17 @@ locate = DB.locate() # {client id: [lat,long]} --> all user in client
 # distance from to from
 target_ClientID = list(demand) # [client id{1}, client id{2}, client id{...}, client id{n}]
 target_LatLong = pd.DataFrame.from_dict(locate, orient='index', columns=['Lat', 'Long']) # df --> [client id, Lat, Long]
-distance_from2from_chart, TransitTime_from2from_chart = cal_distance.cal_Distance_TransitTime(target_ClientID, target_LatLong)
+from2from_chart_distance, from2from_chart_TransitTime = cal_distance.cal_Distance_TransitTime(target_ClientID, target_LatLong)
 
 print("target_clientID --> \n", target_ClientID)
 print("target_LatLong --> \n", target_LatLong)
 
+print('\nDistance\n',from2from_chart_distance) 
+print('\n \nTransit_time\n', from2from_chart_TransitTime)
 
-print(distance_from2from_chart) #-->  recheck from to from chart again
-print(TransitTime_from2from_chart)
-
-
-
+# ===========resource check
+type_car = DB.select_vehicle(demand)
+print(type_car)
 
 
 

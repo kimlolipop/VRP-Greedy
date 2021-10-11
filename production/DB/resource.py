@@ -3,9 +3,11 @@ _vehicle = {'bike':[2,2],
             '4wheel':[1,4] # {type: [quantity, capacity]}
             }
 
+# select car
 def select_vehicle(order):
+    quantity_order = len(order)
     
-    if order > _vehicle['bike'][1]: # order more than bike in 1 round
+    if quantity_order > _vehicle['bike'][1]: # order more than bike in 1 round
         if _vehicle['4wheel'][0] > 0:
             return '4wheel'
     
@@ -15,7 +17,7 @@ def select_vehicle(order):
         
     return 'non' # no car in resource
     
-    
+# calculate step and manage resource    
 def step_vehicle(car_type):
         
     if car_type == 'non':
