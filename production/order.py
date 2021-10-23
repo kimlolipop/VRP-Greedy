@@ -5,13 +5,40 @@ import pandas as pd
 def Demand_list(): # input from api
     
     # {client id : [type, quantity, time request]}
-    demand = {'0':[0,0],      
+    AllDetail_demand = {'0':[0,0,0],      
               '3':[1,2,500], 
               '223':[1,1,400],
-              '21':[1,1,300],
+              '21':[1,4,300],
              } 
     
-    return demand
+    type_demand = {'0':0,      
+              '3':1, 
+              '223':1,
+              '21':1,
+             } 
+    
+    quantity_demand = {'0':0,      
+              '3':2, 
+              '223':1,
+              '21':4,
+             } 
+    
+    TimeRequest_demand = {'0':0,      
+              '3':500, 
+              '223':400,
+              '21':300,
+             } 
+
+    
+    return AllDetail_demand, type_demand, quantity_demand, TimeRequest_demand
+
+
+
+
+
+
+
+
 
 
 

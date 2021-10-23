@@ -4,10 +4,10 @@ _vehicle = {'bike':[2,2],
             }
 
 # select car
-def select_vehicle(order):
-    quantity_order = len(order)
+def select_vehicle(quantity_demand):
+    sum_demand = sum(quantity_demand.values())
     
-    if quantity_order > _vehicle['bike'][1]: # order more than bike in 1 round
+    if sum_demand > _vehicle['bike'][1]: # order more than bike in 1 round
         if _vehicle['4wheel'][0] > 0:
             return '4wheel'
     
@@ -18,29 +18,28 @@ def select_vehicle(order):
     return 'non' # no car in resource
     
 # calculate step and manage resource    
-def step_vehicle(car_type):
+def step_vehicle(type_car):
         
-    if car_type == 'non':
+    if type_car == 'non':
         cartravel = 0
-    elif car_type == '4wheel':
-        cartravel = _vehicle[car_type][1]
-    elif car_type == 'bike':
-        cartravel = _vehicle[car_type][1]
+    elif type_car == '4wheel':
+        cartravel = _vehicle[type_car][1]
+    elif type_car == 'bike':
+        cartravel = _vehicle[type_car][1]
     
-    cal_resource(car_type)
+#     cal_resource(type_car)
     
     return cartravel
 
-def cal_resource(car_type):
+def cal_resource(type_car):
     
-    if car_type == 'non':
+    if type_car == 'non':
         print('no car more')
         pass
     else:
         global _vehicle
-        _vehicle[car_type][0] -= 1
+        _vehicle[type_car][0] -= 1
     
-        print(car_type)
+        print(type_car)
         print(_vehicle)
-
 
