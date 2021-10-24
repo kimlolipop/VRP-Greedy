@@ -4,7 +4,7 @@ _vehicle = {'bike':[2,2],
             }
 
 # select car
-def select_vehicle(quantity_demand):
+def cal_SelectVehicle(quantity_demand):
     sum_demand = sum(quantity_demand.values())
     
     if sum_demand > _vehicle['bike'][1]: # order more than bike in 1 round
@@ -18,7 +18,7 @@ def select_vehicle(quantity_demand):
     return 'non' # no car in resource
     
 # calculate step and manage resource    
-def step_vehicle(type_car):
+def cal_StepVehicle(type_car):
         
     if type_car == 'non':
         cartravel = 0

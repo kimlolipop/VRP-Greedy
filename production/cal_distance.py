@@ -49,9 +49,9 @@ def cal_Distance_TransitTime(route, df): #--> distance and transit time
             # cal transint time from distance 
             transit_time = physic_fomular_time(distance)
             
-            if distance == 0.0:
-                distance = 999999
-                transit_time = 999999
+#             if distance == 0.0:
+#                 distance = 999999
+#                 transit_time = 999999
             
             transit_time_list.append(transit_time)
             distance_list.append(distance)

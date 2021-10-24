@@ -19,7 +19,7 @@ from2from_chart_distance, from2from_chart_TransitTime = cal_distance.cal_Distanc
 ## - - - print recheck value distace and transit time
 
 # print(list(from2from_chart_distance.values())[0]) # --> find index of min value in dict
-print(from2from_chart_distance[str(21)].index(min(from2from_chart_distance[str(21)]))) # --> find index of min value in dict
+# print(from2from_chart_distance[str(0)].index(min(from2from_chart_distance[str(0)]))) # --> find index of min value in dict
 
 # print("target_clientID --> \n", target_ClientID)
 # print("target_LatLong --> \n", target_LatLong)
@@ -32,15 +32,16 @@ count_loop = 0
 route = [[]]
 
 # ===========resource check
-type_car = DB.select_vehicle(quantity_demand)
+type_vehicle = DB.cal_SelectVehicle(quantity_demand)
 # print(type_car)
 
-step_car = DB.step_vehicle(type_car)
+step_vehicle = DB.cal_StepVehicle(type_vehicle)
 # print(step_car)
 
 # Algorithm
-step_method.greedy(from2from_chart_distance, from2from_chart_TransitTime, quantity_demand, step_car)
-
+print('start')
+route = step_method.greedy(from2from_chart_distance, from2from_chart_TransitTime, quantity_demand, step_vehicle)
+print('end')
 
 
 
